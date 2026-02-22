@@ -8,7 +8,6 @@ function generateRow(rowContainer) {
         // Generate each pixel of the row
         const pixel = document.createElement("div");
         pixel.classList.add("pixel");
-        pixel.style.backgroundColor = "LightBlue";
 
         rowContainer.appendChild(pixel);
     }
@@ -27,3 +26,8 @@ function generateGrid() {
 }
 
 generateGrid();
+
+// Coloring the pixel
+container.addEventListener("mouseover", (e) => {
+    e.target.classList.add("bg-red");
+})
