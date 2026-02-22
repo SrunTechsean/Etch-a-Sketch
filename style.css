@@ -3,9 +3,9 @@ html {
 }
 
 *, 
-*: before, 
-*: after {
-    border-box: inherit;
+*::before, 
+*::after {
+    box-sizing: inherit;
 }
 
 .container {
@@ -28,4 +28,20 @@ html {
 
 .bg-red {
     background-color: red;
-;
+}
+
+form {
+    font-size: 1.5em;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+form input {
+    height: 2em;
+    width: 16em;
+}
+
+form button{
+    height: 2em;
+}

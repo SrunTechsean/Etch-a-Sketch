@@ -1,4 +1,6 @@
+const MAX_GRID = 100;
 let grid = 16;
+
 const container = document.querySelector(".container");
 
 // Generate a row of pixel 
