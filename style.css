@@ -1,0 +1,27 @@
+html {
+    box-sizing: border-box;
+}
+
+*, 
+*: before, 
+*: after {
+    border-box: inherit;
+}
+
+.container {
+    background-color: pink;
+    width: 960px;
+    height: 960px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row-container {
+    display: flex;
+    flex: 1;
+}
+
+.pixel {
+    flex: 1;
+    border: 2px solid black;
+}
