@@ -48,11 +48,11 @@ function clearGrid() {
 
 // Set brush Coloring
 menu.addEventListener("click", (e) => {
-    if (e.target.className === "black-btn") {
+    if (e.target.classList.contains("black-btn")) {
         paintColor = "black";
-    } else if (e.target.className === "rainbow-btn") {
+    } else if (e.target.classList.contains("rainbow-btn")) {
         paintColor = "rainbow";
-    } else if (e.target.className === "clear-btn") {
+    } else if (e.target.classList.contains("clear-btn")) {
         clearGrid();
     } else {
         paintColor = "black";
@@ -63,12 +63,9 @@ menu.addEventListener("click", (e) => {
 container.addEventListener("mouseover", (e) => {
     if (paintColor === "black") {
         e.target.style.backgroundColor = "#000000";
-        console.log("black");
     } else if (paintColor === "rainbow") {
         const rainbow = getRandomHexColor();
         e.target.style.backgroundColor = rainbow;
-        console.log("rainbow");
-
     } else {
         e.target.style.backgroundColor = "#000000";
     }
