@@ -20,14 +20,15 @@ function generateRow(rowContainer) {
 
 // Generate full grid 
 function generateGrid() {
+    const fragment = document.createDocumentFragment();
     for (let i = 0; i < gridValue; i++) {
         // Generate Row Container
         const rowContainer = document.createElement("div");
         rowContainer.classList.add("row-container");
-        container.appendChild(rowContainer);
+        fragment.appendChild(rowContainer);
         generateRow(rowContainer);
-
     }
+    container.appendChild(fragment);
 }
 
 generateGrid();
@@ -37,12 +38,22 @@ function getRandomHexColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
 
+// Clear the canvas
+function clearGrid() {
+    container.innerHTML = "";
+    generateGrid();
+}
+
+
+
 // Set brush Coloring
 menu.addEventListener("click", (e) => {
     if (e.target.className === "black-btn") {
         paintColor = "black";
     } else if (e.target.className === "rainbow-btn") {
         paintColor = "rainbow";
+    } else if (e.target.className === "clear-btn") {
+        clearGrid();
     } else {
         paintColor = "black";
     }
@@ -77,8 +88,7 @@ submitButton.addEventListener("click", (e) => {
     }
 
     // Remove Old grid
-    container.innerHTML = "";
-    generateGrid();
+    clearGrid();
 })
 
 
