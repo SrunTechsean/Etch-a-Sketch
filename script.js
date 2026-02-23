@@ -1,8 +1,11 @@
 const container = document.querySelector(".container");
 const submitButton = document.querySelector("button");
+const menu = document.querySelector(".menu");
 
 const MAX_GRID = 100;
 let gridValue = 16;
+let paintColor = "black";
+
 // Generate a row of pixel 
 function generateRow(rowContainer) {
     for (let i = 0; i < gridValue; i++) {
@@ -29,9 +32,35 @@ function generateGrid() {
 
 generateGrid();
 
+// Generate Random HEX Coloring
+function getRandomHexColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+}
+
+// Set brush Coloring
+menu.addEventListener("click", (e) => {
+    if (e.target.className === "black-btn") {
+        paintColor = "black";
+    } else if (e.target.className === "rainbow-btn") {
+        paintColor = "rainbow";
+    } else {
+        paintColor = "black";
+    }
+})
+
 // Coloring the pixel
 container.addEventListener("mouseover", (e) => {
-    e.target.classList.add("bg-red");
+    if (paintColor === "black") {
+        e.target.style.backgroundColor = "#000000";
+        console.log("black");
+    } else if (paintColor === "rainbow") {
+        const rainbow = getRandomHexColor();
+        e.target.style.backgroundColor = rainbow;
+        console.log("rainbow");
+
+    } else {
+        e.target.style.backgroundColor = "#000000";
+    }
 })
 
 submitButton.addEventListener("click", (e) => {

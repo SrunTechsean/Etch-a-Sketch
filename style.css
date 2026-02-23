@@ -10,8 +10,8 @@ html {
 
 .container {
     background-color: pink;
-    width: 960px;
-    height: 960px;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
 }
@@ -25,11 +25,11 @@ html {
     flex: 1;
 }
 
-.bg-red {
-    background-color: red;
+.bg-black {
+    background-color: black;
 }
 
-form {
+.menu, form {
     font-size: 1.5em;
     display: flex;
     gap: 20px;
